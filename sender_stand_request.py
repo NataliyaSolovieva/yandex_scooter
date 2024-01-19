@@ -16,8 +16,7 @@ print(track)
 def get_order():
     global track
     t = track
-    return (requests.getcd
-            (config.URL_SERVICE + config.RECEIVING_ORDER, params=t))
+    return requests.get(config.URL_SERVICE + config.RECEIVING_ORDER, params=t))
 
 
 res = get_order()
