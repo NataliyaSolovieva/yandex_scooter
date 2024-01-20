@@ -13,12 +13,11 @@ track = post_new_order().json()
 print(track)
 
 
-def get_order():
-    global track
-    t = track
-    return requests.get(config.URL_SERVICE + config.RECEIVING_ORDER, params=t))
+def get_order(params):
+    params = {"t": track["track"]}
+    return requests.get(config.URL_SERVICE + config.RECEIVING_ORDER, params=params)
 
 
-res = get_order()
+res = get_order(track)
 print(res.status_code)
 print(res.json())
