@@ -1,0 +1,24 @@
+Первое задание:
+SELECT "courierId",
+	COUNT("id")
+	FROM "Orders"
+	WHERE "inDelivery" = true
+	GROUP BY "couriersId";
+
+
+scooter_rent=# SELECT "courierId", COUNT("id") FROM "Orders" WHERE "inDelivery" = true GROUP BY "courierId";
+
+
+Второе задание:
+SELECT "track", 
+		(CASE 
+			WHEN "finished" = true THEN 2 
+			WHEN "canсelled" = true THEN -1 
+			WHEN "inDelivery" = true THEN 1 
+			ELSE 0 
+			END) 
+		AS "orders_status" 
+FROM "Orders";
+
+
+scooter_rent=# SELECT "track", (CASE WHEN "finished" = true THEN 2 WHEN "cancelled" = true THEN -1 WHEN "inDelivery" = true THEN 1 ELSE 0 END) AS "orders_status" FROM "Orders";		
