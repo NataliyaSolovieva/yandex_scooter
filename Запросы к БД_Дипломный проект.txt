@@ -1,18 +1,21 @@
 Первое задание:
-SELECT c."id",
-	COUNT(o."id")
-	FROM "Couriers" AS c
-	INNER JOIN "Orders" AS o ON c."id" = o."courierId"
-	WHERE o."inDelivery" = true
-	GROUP BY c."id";
+SELECT c."login" AS CourierLogin,
+	    COUNT(o."id") AS OrdersCount
+FROM "Couriers" AS c
+INNER JOIN "Orders" AS o ON c."id" = o."courierId"
+WHERE o."inDelivery" = true
+GROUP BY c."login";
 
 Копия запроса первого задания из консоли:
-scooter_rent=# SELECT c."id",
- COUNT(o."id")
- FROM "Couriers" AS c
- INNER JOIN "Orders" AS o ON c."id" = o."courierId"
- WHERE o."inDelivery" = true
- GROUP BY c."id";
+scooter_rent=# SELECT c."login" AS CourierLogin,
+scooter_rent-#  COUNT(o."id") AS OrdersCount
+scooter_rent-#  FROM "Couriers" AS c
+scooter_rent-#  INNER JOIN "Orders" AS o ON c."id" = o."courierId"
+scooter_rent-#  WHERE o."inDelivery" = true
+scooter_rent-#  GROUP BY c."login";
+ courierlogin | orderscount
+--------------+-------------
+(0 rows)
 
 
 Второе задание:
